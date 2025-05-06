@@ -1,7 +1,12 @@
 #!/bin/bash
-# Mover archivos que comienzan con mayúscula a /tmp/u
+
+# Directorio de destino
+DEST_DIR="/tmp/u"
+
+# Mover archivos que comienzan con mayúscula
 for file in [A-Z]*; do
-    if [ -e "$file" ]; then  # Verifica si el archivo existe
-        mv "$file" /tmp/u/
+    # Comprobar si el archivo existe (para evitar mover directorios vacíos)
+    if [ -f "$file" ]; then
+        mv "$file" "$DEST_DIR/"
     fi
 done
