@@ -1,17 +1,2 @@
 #!/bin/bash
-
-# Verificar si el directorio de destino existe
-DEST_DIR="/tmp/u"
-if [ ! -d "$DEST_DIR" ]; then
-    echo "El directorio $DEST_DIR no existe."
-    exit 1
-fi
-
-# Mover archivos que comienzan con mayúscula
-for file in [A-Z]*; do
-    # Comprobar si el archivo existe (para evitar mover directorios vacíos o no coincidentes)
-    if [ -f "$file" ]; then
-        mv "$file" "$DEST_DIR/"
-        echo "Movido: $file"
-    fi
-done
+mv [A-Z]* /tmp/u
